@@ -1,4 +1,4 @@
-const BASE_URL = 'http://codenirvana-backend.onrender.com/api/v1'
+const BASE_URL = 'https://codenirvana-backend.onrender.com/api/v1'
 
 // AUTH ENDPOINTS
 export const endpoints = {
