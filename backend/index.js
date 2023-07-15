@@ -22,10 +22,7 @@ app.use(
         credentials:true
     })
 )
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://code-nirvana.vercel.app');
-    next();
-  });
+
 app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp/'
@@ -43,7 +40,10 @@ app.get("/", (req, res) => {
 		message:'Your server is up and running....'
 	});
 });
-
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://code-nirvana.vercel.app');
+    next();
+  });
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
 	console.log(`App is running at ${PORT}`)
