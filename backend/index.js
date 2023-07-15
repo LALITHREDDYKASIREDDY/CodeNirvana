@@ -14,14 +14,13 @@ const app=express();
 connect();
 cloudinaryConnect();
 //middleware
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://code-nirvana.vercel.app');
+    next();
+  });
 app.use(express.json())
 app.use(cookieParser());
-app.use(
-    cors({
-        origin:"https://code-nirvana.vercel.app/",
-        credentials:true
-    })
-)
+
 
 app.use(fileUpload({
     useTempFiles : true,
@@ -40,10 +39,7 @@ app.get("/", (req, res) => {
 		message:'Your server is up and running....'
 	});
 });
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://code-nirvana.vercel.app');
-    next();
-  });
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
 	console.log(`App is running at ${PORT}`)
