@@ -1,4 +1,4 @@
-const BASE_URL = "https://code-nirvana.vercel.app/"
+const BASE_URL = "https://codenirvana-backend.onrender.com"
 
 // AUTH ENDPOINTS
 export const endpoints = {
