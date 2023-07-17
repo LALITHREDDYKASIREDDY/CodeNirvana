@@ -56,7 +56,7 @@ function CourseDetails() {
 
   // // Collapse all
   // const [collapse, setCollapse] = useState("")
-  const [isActive, setIsActive] = useState(Array(0))
+  const [isActive, setIsActive] = useState([])
   const handleActive = (id) => {
     // console.log("called", id)
     setIsActive(
@@ -100,7 +100,7 @@ function CourseDetails() {
     studentsEnrolled,
     createdAt,
   } = response.data?.courseDetails
-console.log(instructor)
+
   const handleBuyCourse = () => {
     if (token) {
       buyCourse(token, [courseId], user, navigate, dispatch)
@@ -189,7 +189,7 @@ console.log(instructor)
           <div className="max-w-[830px] ">
             <div className="flex flex-col gap-3">
               <p className="text-[28px] font-semibold">Course Content</p>
-              <div className="flex flex-wrap justify-between gap-2">
+              <div className="flex  justify-between gap-2">
                 <div className="flex gap-2">
                   <span>
                     {courseContent.length} {`section(s)`}

@@ -6,8 +6,7 @@ exports.createSubSection=async (req,res)=>{
     try{
         //data fetching
       const {title,description,sectionId }=req.body
-      console.log(sectionId)
-      console.log(req.body)
+     
       // data validation
       if (!sectionId || !title || !description ) {
         return res

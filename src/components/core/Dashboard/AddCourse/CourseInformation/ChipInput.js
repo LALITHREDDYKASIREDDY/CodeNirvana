@@ -26,7 +26,7 @@ export default function ChipInput({
       setChips(course?.tag)
     }
     register(name, { required: true, validate: (value) => value.length > 0 })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+   
   }, [])
 
   useEffect(() => {

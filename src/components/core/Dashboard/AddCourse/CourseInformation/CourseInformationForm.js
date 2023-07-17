@@ -56,7 +56,7 @@ export default function CourseInformationForm() {
     }
     getCategories()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [])
 
   const isFormUpdated = () => {
@@ -80,16 +80,17 @@ export default function CourseInformationForm() {
 
   //   handle next button click
   const onSubmit = async (data) => {
-     console.log(data)
+    console.log(data.courseCategory)
    
     if (editCourse) {
       // const currentValues = getValues()
       // console.log("changes after editing form values:", currentValues)
       // console.log("now course:", course)
       // console.log("Has Form Changed:", isFormUpdated())
+     
       if (isFormUpdated()) {
         const currentValues = getValues()
-        console.log(currentValues)
+
         const formData = new FormData()
         // console.log(data)
         formData.append("courseId", course._id)

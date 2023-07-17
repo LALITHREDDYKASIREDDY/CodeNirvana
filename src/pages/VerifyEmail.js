@@ -52,7 +52,7 @@ export default function VerifyEmail()
       return(
              <div className="flex items-center justify-center h-[600px]">
             {loading ? (
-                <div>
+                <div className="w-screen flex justify-center items-center">
                 <div className="spinner"></div>
                 </div>
             ) : (

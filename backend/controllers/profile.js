@@ -39,10 +39,10 @@ exports.deleteAccount=async (req,res)=>{
        //userid
        const userId=req.user.id;
        //validating the user
-       console.log( userId)
+       
        const userDetails=await User.findById(userId)
        //validating details of user
-       console.log(userDetails)
+  
        if(!userDetails)
        {
            return res.status(400).json({
@@ -163,8 +163,7 @@ exports.getEnrolledCourses = async (req, res) => {
 		  courseId: userDetails.courses[i]._id,
 		  userId: userId,
 		})
-    console.log(SubsectionLength)
-    console.log(courseProgressCount)
+   
 		courseProgressCount = courseProgressCount?.completedVideos.length
 		if (SubsectionLength === 0) {
 		  userDetails.courses[i].progressPercentage = 100
@@ -184,7 +183,7 @@ exports.getEnrolledCourses = async (req, res) => {
 		  message: `Could not find user with id: ${userDetails}`,
 		})
 	  }
-    console.log(userDetails.courses)
+ 
 	  return res.status(200).json({
 		success: true,
 		data: userDetails.courses,

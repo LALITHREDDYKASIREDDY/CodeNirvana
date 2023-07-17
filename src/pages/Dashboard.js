@@ -9,7 +9,7 @@ export default function Dashboard() {
     const {loading: profileLoading} = useSelector( (state) => state.profile );
     if(authLoading||profileLoading){
       return(
-        <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <div className="flex items-center justify-center">
         <div className="spinner"></div>
       </div>
       )

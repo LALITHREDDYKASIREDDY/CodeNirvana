@@ -40,7 +40,7 @@ export async function getUserEnrolledCourses(token) {
   const toastId = toast.loading("Loading...")
   let result = []
   try {
-    console.log(token);
+   
     const response = await apiConnector(
       "GET",
       GET_USER_ENROLLED_COURSES_API,

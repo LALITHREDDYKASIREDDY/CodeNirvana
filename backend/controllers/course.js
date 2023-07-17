@@ -21,7 +21,7 @@ exports.createCourse=async (req,res)=>{
 			instructions }=req.body
            
             const thumbnail = req.files.thumbnailImage;
-            console.log(thumbnail)
+            
          //data validation
          if (
 			!courseName ||
@@ -47,8 +47,7 @@ exports.createCourse=async (req,res)=>{
          const instructorDetails=await User.findById({_id:userId},{
 			accountType: "Instructor",}
 		)
-        console.log(instructorDetails)
-        console.log(instructorDetails.id)
+        
          if(!instructorDetails)
          {
             return res.status(400).json({
@@ -120,7 +119,6 @@ exports.editCourse = async (req, res) => {
 
     // If Thumbnail Image is found, update it
     if (req.files) {
-      console.log("thumbnail update")
       const thumbnail = req.files.thumbnailImage
       const thumbnailImage = await uploadImageToCloudinary(
         thumbnail,
@@ -132,11 +130,9 @@ exports.editCourse = async (req, res) => {
     // Update only the fields that are present in the request body
     for (const key in updates) {
       if (updates.hasOwnProperty(key)) {
-        if (key === "tag" || key === "instructions") {
+       
           course[key] = updates[key]
-        } else {
-          course[key] = updates[key]
-        }
+        
       }
     }
 
@@ -176,44 +172,12 @@ exports.editCourse = async (req, res) => {
   }
 }
 //get all the courses
-exports.getAllCourses=async(req,res)=>{
-    try{
-        
-    const allCourses=await Course.find({},{
-              courseName: true,
-				price: true,
-				thumbnail: true,
-				instructor: true,
-				ratingAndReviews: true,
-				studentsEnroled: true,
-    }).populate(
-        {
-            path:"instructor",
-            populate:{
-                path:"additionalDetails",
-            },
-        }
-    ) .populate("category").exec()
-    console.log(allCourses)
-   res.json({
-    success:true,
-    message:'all courses fetched successfully',
-    data:allCourses,
-   })
-    }
-    catch(error){
-        return res.status(500).json({
-            success:false,
-            message:'something went wrong in getting the courses,try again',
-            error:error.message
-        })
-    }
-}
+
 exports.getCourseDetails=async(req,res)=>{
     try{
         //fetching data
          const {courseId}=req.body
-         console.log(courseId)
+      
          //fetching course details
          const courseDetails=await Course.findById(courseId).populate(
                 {
@@ -381,7 +345,7 @@ exports.getFullCourseDetails = async (req, res) => {
       userId: userId,
     })
 
-    console.log("courseProgressCount : ", courseProgressCount)
+
 
     if (!courseDetails) {
       return res.status(400).json({
@@ -390,12 +354,6 @@ exports.getFullCourseDetails = async (req, res) => {
       })
     }
 
-    // if (courseDetails.status === "Draft") {
-    //   return res.status(403).json({
-    //     success: false,
-    //     message: `Accessing a draft course is forbidden`,
-    //   });
-    // }
 
     let totalDurationInSeconds = 0
     courseDetails.courseContent.forEach((content) => {

@@ -29,7 +29,7 @@ export default function ForgotPassword() {
             <form onSubmit={handleOnSubmit}>
             {!emailSent && (
               <label className="w-full">
-                <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 mb-5">
+                <p className=" mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 mb-5">
                   Email Address <sup className="text-pink-200">*</sup>
                 </p>
                 <input

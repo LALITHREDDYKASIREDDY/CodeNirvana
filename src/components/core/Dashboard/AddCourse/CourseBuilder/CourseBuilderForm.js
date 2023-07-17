@@ -57,7 +57,7 @@ export default function CourseBuilderForm() {
         token
       )
     }
-    console.log("this is section",result)
+    
     if (result) {
       // console.log("section result", result)
       dispatch(setCourse(result))

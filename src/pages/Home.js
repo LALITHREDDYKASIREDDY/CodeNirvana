@@ -40,7 +40,7 @@ const Home = () => {
             With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors. 
         </div>
 
-        <div className='flex flex-row gap-7 mt-8'>
+        <div className='flex  gap-7 mt-8'>
             <CTAButton active={true} linkto={"/signup"}> 
                 Learn More
             </CTAButton>
@@ -50,11 +50,12 @@ const Home = () => {
             </CTAButton>
         </div>
 
-        <div className='mx-3 my-12 shadow-blue-200'>
+        <div className='mx-3 my-12  shadow-blue-200'>
             <video
             muted
             loop
             autoPlay
+            className='w-[1200px]'
             >
             <source  src={Banner} type="video/mp4" />
             </video>
@@ -88,8 +89,9 @@ const Home = () => {
                         active: false,
                     }
                 }
-
-                codeblock={`<<!DOCTYPE html>\n<html>\nhead><title>Example</title><linkrel="stylesheet"href="styles.css">\n/head>\n`}
+                codeblock={`<!DOCTYPE html>\n\
+                <html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>
+                \n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>`}
                 codeColor={"text-yellow-25"}
             />
         </div>
@@ -123,8 +125,11 @@ const Home = () => {
                     }
                 }
 
-                codeblock={`<<!DOCTYPE html>\n<html>\nhead><title>Example</title><linkrel="stylesheet"href="styles.css">\n/head>\n`}
+                codeblock={`import React from "react";\n
+                import CTAButton from "./Button";\nimport TypeAnimation from "react-type";\nimport { FaArrowRight } from "react-icons/fa"
+                ;\n\nconst Home = () => {\nreturn (\n<div>Home</div>\n)\n}\nexport default Home;`}
                 codeColor={"text-yellow-25"}
+                className="codeblock1 "
             />
         </div>
 
@@ -167,7 +172,7 @@ const Home = () => {
 
                     <div className='flex flex-col gap-10 w-[40%] items-start'>
                     <div className='text-[16px]'>
-                    The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
+                    The modern CodeNirvana is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
                     </div>
                     <CTAButton active={true} linkto={"/signup"}>
                         <div>
@@ -196,7 +201,9 @@ const Home = () => {
 
             <InstructorSection />
 
-            <h2 className='text-center text-4xl font-semobold mt-10'>review from Other Learners</h2>
+            <h1 className="text-center text-4xl font-semibold mt-8">
+          Reviews from other learners
+        </h1>
             <ReviewSlider/>
      
       </div>

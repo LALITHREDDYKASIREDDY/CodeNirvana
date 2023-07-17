@@ -22,9 +22,9 @@ exports.resetPasswordToken = async (req, res) => {
 			},
 			{ new: true }
 		);
-		console.log( updatedDetails)
+		
 
-		const url = `http://localhost:3000/update-password/${token}`
+		const url = `https://code-nirvana.vercel.app/update-password/${token}`
 
 		await mailSender(
 			email,

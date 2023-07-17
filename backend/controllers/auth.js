@@ -40,12 +40,12 @@ exports.sendOtp=async (req,res)=>{
     const otpPayload={email,otp}
     //create an entry in db  in otp collection
     const otpentry=await Otp.create(otpPayload)
-    console.log(otpentry)
+
      res.json(
         {
             success:true,
             message:"otp sent successfully",
-            otp
+            
         }
      )
     }
@@ -138,7 +138,6 @@ exports.signup = async (req, res) => {
 			about: null,
 			contactNumber: null,
 		});
-        console.log('here')
 		const user = await User.create({
 			firstName,
 			lastName,
@@ -167,7 +166,7 @@ exports.signup = async (req, res) => {
 exports.login=async (req,res)=>{
     try{
          //get data from req body
-         console.log(req.body)
+        
          const {email,password}=req.body
          //validate data
          if(!email||!password)
@@ -193,7 +192,7 @@ exports.login=async (req,res)=>{
         )
      }
          //if password matches generate jwt token 
-         console.log(password)
+        
          console.log(await bcrypt.compare(password,user.password) )
          if(await bcrypt.compare(password,user.password))
          {

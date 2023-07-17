@@ -27,9 +27,6 @@ export default function SubSectionModal({
     getValues,
   } = useForm()
 
-  // console.log("view", view)
-  // console.log("edit", edit)
-  // console.log("add", add)
 
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
@@ -109,7 +106,7 @@ export default function SubSectionModal({
     formData.append("title", data.lectureTitle)
     formData.append("description", data.lectureDesc)
     formData.append("video", data.lectureVideo)
-    console.log(data.lectureVideo)
+   
     setLoading(true)
     const result = await createSubSection(formData, token)
     if (result) {

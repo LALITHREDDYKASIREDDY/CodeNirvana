@@ -49,11 +49,13 @@ const CodeBlocks = ({
             <p>9</p>
             <p>10</p>
             <p>11</p>
+            <p>12</p>
+            <p>13</p>
         </div>
 
         <div className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2`}>
            <TypeAnimation
-            sequence={[codeblock, 2000, ""]}
+            sequence={[codeblock, 2000]}
             repeat={Infinity}
             cursor={true}
            
