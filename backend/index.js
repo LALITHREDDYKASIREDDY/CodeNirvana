@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(cookieParser());
 app.use(
     cors({
-        origin:"https://code-nirvana.vercel.app/*",
+        origin:"https://code-nirvana.vercel.app",
         credentials:true
     })
 )
