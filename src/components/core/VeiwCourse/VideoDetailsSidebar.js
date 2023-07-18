@@ -23,17 +23,11 @@ export default function ViewDetailsSidebar({setReviewModal}){
           
             if(!courseSectionData.length)
                 return;
-            const currentSectionIndex = courseSectionData.findIndex(
-                (data) => data._id === sectionId
-            )
-            const currentSubSectionIndex = courseSectionData?.[currentSectionIndex]?.subSection.findIndex(
-                (data) => data._id === subSectionId
-            )
-            const activeSubSectionId = courseSectionData[currentSectionIndex]?.subSection?.[currentSubSectionIndex]?._id;
+      
             //set current section here
-            setActiveStatus(courseSectionData?.[currentSectionIndex]?._id);
+            setActiveStatus(sectionId)
             //set current sub-section here
-            setVideoBarActive(activeSubSectionId);
+            setVideoBarActive(subSectionId);
         }
         setActiveFlags();
     },[courseSectionData, courseEntireData, location.pathname])
