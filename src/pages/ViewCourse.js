@@ -14,7 +14,7 @@ export default function ViewCourse(){
     useEffect(()=> {
         const setCourseSpecificDetails = async() => {
               const courseData = await getFullDetailsOfCourse(courseId, token);
-              console.log("this is ",courseData.courseContent)
+ 
               dispatch(setCourseSectionData(courseData.courseDetails.courseContent));
               dispatch(setEntireCourseData(courseData.courseDetails));
               dispatch(setCompletedLectures(courseData.completedVideos));
@@ -29,14 +29,15 @@ export default function ViewCourse(){
 
     return (
         <>
-            <div>
-                <VideoDetailsSidebar setReviewModal={setReviewModal} />
-                <div>
-                    <Outlet />
-                </div>
-                {reviewModal && (<CourseReviewModal setReviewModal={setReviewModal} />)}
-            </div>
-            
+                 <div className="relative flex min-h-[calc(100vh-3.5rem)]">
+        <VideoDetailsSidebar setReviewModal={setReviewModal} />
+        <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
+          <div className="mx-6">
+            <Outlet />
+          </div>
+        </div>
+      </div>
+      {reviewModal && <CourseReviewModal setReviewModal={setReviewModal} />}
         </>
       )
 }
