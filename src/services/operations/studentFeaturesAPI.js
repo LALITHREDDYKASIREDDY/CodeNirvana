@@ -47,7 +47,7 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
     
         //options
         const options = {
-            key: "rzp_test_WWFu5gUiADtjSy",
+           key: "rzp_test_WWFu5gUiADtjSy",
             currency: orderResponse.data.message.currency,
             amount: `${orderResponse.data.message.amount}`,
             order_id:orderResponse.data.message.id,
